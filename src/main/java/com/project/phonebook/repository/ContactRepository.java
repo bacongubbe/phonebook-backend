@@ -14,8 +14,10 @@ public class ContactRepository {
 
     public ContactRepository (){
         contacts.add(new Contact(
-                UUID.randomUUID().toString(),"Felix Berg",
-"Solbergsvägen 57, 16866 Bromma", "+46708926313"
+                UUID.randomUUID().toString(),
+                "Felix Berg",
+                "Solbergsvägen 57, 16866 Bromma",
+                "+46708926313"
         ));
     }
 

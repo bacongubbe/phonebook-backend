@@ -17,7 +17,7 @@ public class ContactController {
     public ContactController(ContactRepository repository) {
         this.repository = repository;
     }
-
+    @CrossOrigin
     @GetMapping
     public List<Contact> findAll(){return repository.findAll();}
 
