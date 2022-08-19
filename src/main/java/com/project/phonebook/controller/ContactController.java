@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/contacts")
 public class ContactController {
 
-        private final ContactRepository repository;
+    private final ContactRepository repository;
 
     public ContactController(ContactRepository repository) {
         this.repository = repository;
