@@ -33,4 +33,12 @@ public class ContactRepository {
     }
 
     public void delete(String id){ contacts.removeIf(contact -> contact.id().equals(id));}
+
+    public void update (Contact contact, String id){
+        Contact existing = contacts.stream().filter(c -> c.id().equals(id))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("Contact not found"));
+        int i = contacts.indexOf(existing);
+        contacts.set(i, contact);
+    }
 }

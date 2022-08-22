@@ -18,7 +18,7 @@ public class ContactController {
     public ContactController(ContactRepository repository) {
         this.repository = repository;
     }
-    @CrossOrigin
+
     @GetMapping
     public List<Contact> findAll(){return repository.findAll();}
 
@@ -27,7 +27,7 @@ public class ContactController {
         return repository.findById(id);
     }
 
-    @ResponseStatus (HttpStatus.CREATED)
+    @ResponseStatus (HttpStatus.ACCEPTED)
     @PostMapping
     public Contact create(@Valid @RequestBody Contact contact) {return repository.create(contact);}
 
@@ -35,6 +35,12 @@ public class ContactController {
     @DeleteMapping ("/{id}")
     public void delete(@PathVariable String id){
         repository.delete(id);
+    }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @PutMapping ("/{id}")
+    public void update (@RequestBody Contact contact,@PathVariable String id){
+        repository.update(contact,id);
     }
 
 }
